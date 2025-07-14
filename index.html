@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --text-color: #1a1c20;
+      --link-color: #4a76ee;
+      --background-color: #eeeff1;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+      background-color: var(--background-color);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 50px;
+      height: 80px;
+    }
+
+    nav .left a {
+      color: var(--text-color);
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    nav .right a {
+      color: var(--text-color);
+      margin: 0 10px;
+    }
+
+    nav .right a:last-child {
+      color: var(--background-color);
+      background-color: var(--text-color);
+      padding: 5px 15px;
+      border-radius: 5px;
+    }
+
+    nav .right a span {
+      margin-left: 5px;
+    }
+
+    /* SECTION 1: Hero */
+    .hero-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 50px;
+      margin: 50px 0;
+      margin-bottom: 100px;
+      gap: 40px;
+    }
+
+    .hero-section .text {
+      flex: 5;
+    }
+
+    .hero-section .text h2 {
+      font-size: 45px;
+    }
+
+    .hero-section .text .links {
+      margin-top: 25px;
+    }
+
+    .hero-section .text .links a {
+      display: inline-block;
+      padding: 5px 10px;
+      border: 2px solid var(--link-color);
+      border-radius: 5px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      transition: .1s;
+    }
+
+    .hero-section .text .links a:hover {
+      color: var(--text-color);
+      border: 2px solid var(--text-color);
+    }
+
+    .hero-section .headshot {
+      flex: 2;
+      display: flex;
+      justify-content: right;
+    }
+
+    .hero-section .headshot img {
+      width: 350px;
+      border-radius: 50%;
+    }
+
+    /* SECTION 2: Academic */
+    .academic-section {
+      padding: 0 50px;
+      margin-bottom: 100px;
+    }
+
+    .academic-section h2 {
+      text-align: center;
+      font-size: 35px;
+      margin-bottom: 30px;
+    }
+
+    .academic-section .content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .academic-section .education-card {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border-left: 4px solid var(--link-color);
+    }
+
+    .academic-section .education-card h3 {
+      color: var(--link-color);
+      margin-bottom: 10px;
+    }
+
+    .academic-section .education-card .degree {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .academic-section .education-card .year {
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* SECTION 3: Skills */
+    .skills-section {
+      padding: 0 50px;
+      margin-bottom: 100px;
+    }
+
+    .skills-section h2 {
+      text-align: center;
+      font-size: 35px;
+      margin-bottom: 30px;
+    }
+
+    .skills-section .cells {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .skills-section .cells .cell {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      width: 200px;
+      padding: 10px 20px;
+      margin: 10px;
+      border: 1.5px solid #d3d3d3;
+      border-radius: 5px;
+      background-color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .skills-section .cells .cell:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .skills-section .cells .cell img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      border-radius: 2px;
+    }
+
+    .skills-section .cells .cell span {
+      font-size: 18px;
+    }
+
+    /* SECTION 4: Projects */
+    .projects-section {
+      padding: 0 50px;
+      margin-bottom: 100px;
+    }
+
+    .projects-section h2 {
+      text-align: center;
+      font-size: 35px;
+      margin-bottom: 30px;
+    }
+
+    .projects-section .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .projects-section .project-card {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .projects-section .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .projects-section .project-card h3 {
+      color: var(--link-color);
+      margin-bottom: 15px;
+    }
+
+    .projects-section .project-card .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 15px 0;
+    }
+
+    .projects-section .project-card .tech-stack span {
+      background-color: var(--link-color);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .projects-section .project-card .links {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .projects-section .project-card .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 12px;
+      border: 1px solid var(--link-color);
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .projects-section .project-card .links a:hover {
+      background-color: var(--link-color);
+      color: white;
+    }
+
+    /* SECTION 5: About Me */
+    .about-section {
+      padding: 0 50px;
+      margin-bottom: 100px;
+    }
+
+    .about-section h2 {
+      font-size: 35px;
+      margin-bottom: 30px;
+    }
+
+    .about-section .group {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .about-section .group .person-details {
+      text-align: center;
+      flex: 2;
+    }
+
+    .about-section .group .person-details img {
+      width: 200px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .about-section .group .person-details p {
+      font-weight: 600;
+    }
+
+    .about-section .group .person-details p:last-child {
+      font-weight: normal;
+    }
+
+    .about-section .group .text {
+      flex: 8;
+    }
+
+    /* SECTION 6: Contact */
+    .contact-section {
+      padding: 0 50px;
+      margin-bottom: 100px;
+    }
+
+    .contact-section h2 {
+      font-size: 35px;
+      margin-bottom: 30px;
+    }
+
+    .contact-section .group {
+      display: flex;
+      gap: 50px;
+    }
+
+    .contact-section .group .contact-info {
+      flex: 2;
+    }
+
+    .contact-section .group .contact-info .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .contact-section .group .contact-info .contact-item i {
+      color: var(--link-color);
+      font-size: 20px;
+      width: 30px;
+      text-align: center;
+    }
+
+    .contact-section .group form {
+      flex: 3;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-section .group form input,
+    .contact-section .group form textarea {
+      font-family: 'Poppins', sans-serif;
+      border: 2px solid var(--link-color);
+      background-color: transparent;
+      padding: 10px;
+      margin-bottom: 15px;
+      outline: none;
+      resize: none;
+      border-radius: 5px;
+    }
+
+    .contact-section .group form button {
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      background-color: var(--link-color);
+      border: none;
+      height: 50px;
+      cursor: pointer;
+      transition: .1s;
+      border-radius: 5px;
+    }
+
+    .contact-section .group form button:hover {
+      filter: brightness(.9);
+    }
+
+    @media (max-width: 850px) {
+      .hero-section .text h2 {
+        font-size: 35px;
+      }
+    }
+
+    @media (max-width: 740px) {
+      .hero-section {
+        flex-direction: column-reverse;
+      }
+
+      .hero-section .headshot img {
+        width: 300px;
+      }
+
+      .about-section {
+        text-align: center;
+      }
+
+      .about-section .group {
+        flex-direction: column;
+      }
+
+      .contact-section .group {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 0 20px;
+      }
+
+      nav .right a {
+        font-size: 22px;
+      }
+
+      nav .right a:last-child {
+        color: var(--text-color);
+        background-color: transparent;
+        padding: 0;
+      }
+
+      nav .right a span {
+        display: none;
+      }
+
+      .hero-section {
+        padding: 0 20px;
+      }
+
+      .hero-section .text h2 {
+        font-size: 30px;
+      }
+
+      .academic-section,
+      .skills-section,
+      .projects-section,
+      .about-section,
+      .contact-section {
+        padding: 0 20px;
+      }
+
+      .skills-section .cells .cell span {
+        font-size: 16px;
+      }
+    }
+  </style>
+
+  <title>Sadhvik Baba Patibandla - Portfolio</title>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="left">
+      <a href="/">Sadhvik Baba Patibandla</a>
+    </div>
+
+    <div class="right">
+      <a href="https://github.com/sadhvikbaba" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-github"></i>
+        <span>Github</span>
+      </a>
+      
+      <a href="https://www.linkedin.com/in/sadhvik-baba-patibandla-563964278" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-linkedin"></i>
+        <span>Linkedin</span>
+      </a>
+      
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=psadhvik2006@gmail.com&su=MAIL_FROM_PORTFOLIO&body=Hello%20Sadhvik,%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect!" target="_blank">
+        <i class="fa-solid fa-envelope"></i>
+        <span>Email</span>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- SECTION 1: Hero -->
+    <section class="hero-section">
+      <div class="text">
+        <h2>Hi, I'm Sadhvik Baba👋</h2>
+        <p>Currently pursuing my Bachelor's in CSE - AI/ML at SRM University AP<br>
+          Passionate about innovative web applications and exploring AI tools</p>
+
+        <div class="links">
+          <a href="#academic">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Academic</span>
+          </a>
+          
+          <a href="#skills">
+            <i class="fa-solid fa-code"></i>
+            <span>Skills</span>
+          </a>
+          
+          <a href="#projects">
+            <i class="fa-solid fa-laptop-code"></i>
+            <span>Projects</span>
+          </a>
+          
+          <a href="#about">
+            <i class="fa-solid fa-user"></i>
+            <span>About</span>
+          </a>
+          
+          <a href="#contact">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Contact</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="headshot">
+        <img src="images/meeeeee.jpg" alt="Sadhvik Baba Patibandla">
+      </div>
+    </section>
+
+    <!-- SECTION 2: Academic -->
+    <section id="academic" class="academic-section">
+      <h2>Academic Background</h2>
+      
+      <div class="content">
+        <div class="education-card">
+          <h3>SRM University AP</h3>
+          <div class="degree">Bachelor of Technology - CSE (AI/ML)</div>
+          <div class="year">2023 - 2027 (Expected)</div>
+          <p>Specializing in Artificial Intelligence and Machine Learning with a focus on modern web technologies and innovative application development.</p>
+        </div>
+        
+        <div class="education-card">
+          <h3>Higher Secondary Education</h3>
+          <div class="degree">12th Grade - Science Stream</div>
+          <div class="year">2021 - 2023</div>
+          <p>Completed with strong foundation in Mathematics, Physics, and Computer Science, preparing for engineering studies.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Skills -->
+    <section id="skills" class="skills-section">
+      <h2>Technical Skills</h2>
+
+      <div class="cells">
+        <div class="cell">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML logo">
+          <span>HTML</span>
+        </div>
+        
+        <div class="cell">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS logo">
+          <span>CSS</span>
+        </div>
+        
+        <div class="cell">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript logo">
+          <span>JavaScript</span>
+        </div>
+        
+        <div class="cell">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++ logo">
+          <span>C++</span>
+        </div>
+        
+        <div class="cell">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C logo">
+          <span>C</span>
+        </div>
+        
+        <div class="cell">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React logo">
+          <span>React</span>
+        </div>
+        
+        <div class="cell">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="Tailwind CSS logo">
+          <span>Tailwind CSS</span>
+        </div>
+        
+        <div class="cell">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python logo">
+          <span>Python</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Projects -->
+    <section id="projects" class="projects-section">
+      <h2>My Projects</h2>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Portfolio Website</h3>
+          <p>A responsive personal portfolio website showcasing my skills, projects, and academic background. Built with modern web technologies and optimized for all devices.</p>
+          <div class="tech-stack">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>Responsive Design</span>
+          </div>
+          <div class="links">
+            <a href="#" target="_blank">
+              <i class="fa-solid fa-external-link"></i>
+              Live Demo
+            </a>
+            <a href="https://github.com/sadhvikbaba" target="_blank">
+              <i class="fa-brands fa-github"></i>
+              Source Code
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>AI/ML Project</h3>
+          <p>Machine learning project focusing on data analysis and predictive modeling. Implemented using Python and various ML libraries to solve real-world problems.</p>
+          <div class="tech-stack">
+            <span>Python</span>
+            <span>Machine Learning</span>
+            <span>Data Analysis</span>
+            <span>Pandas</span>
+          </div>
+          <div class="links">
+            <a href="#" target="_blank">
+              <i class="fa-solid fa-external-link"></i>
+              Live Demo
+            </a>
+            <a href="https://github.com/sadhvikbaba" target="_blank">
+              <i class="fa-brands fa-github"></i>
+              Source Code
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Web Application</h3>
+          <p>Full-stack web application with modern UI/UX design. Features user authentication, data management, and responsive design principles.</p>
+          <div class="tech-stack">
+            <span>React</span>
+            <span>Tailwind CSS</span>
+            <span>JavaScript</span>
+            <span>Full Stack</span>
+          </div>
+          <div class="links">
+            <a href="#" target="_blank">
+              <i class="fa-solid fa-external-link"></i>
+              Live Demo
+            </a>
+            <a href="https://github.com/sadhvikbaba" target="_blank">
+              <i class="fa-brands fa-github"></i>
+              Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: About Me -->
+    <section id="about" class="about-section">
+      <h2>About Me</h2>
+
+      <div class="group">
+        <div class="person-details">
+          <img src="images/meeeeee.jpg" alt="Sadhvik Baba Patibandla">
+          <p>Sadhvik Baba Patibandla</p>
+          <p>Aspiring AI/ML Engineer</p>
+        </div>
+
+        <div class="text">
+          I'm a passionate computer science student at SRM University AP, pursuing my degree in AI/ML and eager to dive into the world of technology. My experience in frontend development gives me a unique perspective on building and deploying applications. I'm driven to learn and contribute to innovative solutions, always seeking opportunities to expand my skillset and embrace new challenges in the ever-evolving tech landscape. 
+          
+          <br><br>
+          
+          My goal is to bridge the gap between artificial intelligence and web development, creating intuitive applications that make complex AI technologies accessible to everyone. I believe in continuous learning and am always exploring new technologies and methodologies to stay at the forefront of innovation.
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Contact -->
+    <section id="contact" class="contact-section">
+      <h2>Get In Touch</h2>
+
+      <div class="group">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <strong>Email</strong><br>
+              psadhvik2006@gmail.com
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fa-brands fa-linkedin"></i>
+            <div>
+              <strong>LinkedIn</strong><br>
+              <a href="https://www.linkedin.com/in/sadhvik-baba-patibandla-563964278" target="_blank">Connect with me</a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fa-brands fa-github"></i>
+            <div>
+              <strong>GitHub</strong><br>
+              <a href="https://github.com/sadhvikbaba" target="_blank">Check out my code</a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fa-solid fa-map-marker-alt"></i>
+            <div>
+              <strong>Location</strong><br>
+              Narasaraopet, Andhra Pradesh, India
+            </div>
+          </div>
+        </div>
+
+        <form id="contactForm">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" cols="30" rows="10" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Form submission handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      
+      // Create mailto link with form data
+      const subject = `Portfolio Contact from ${name}`;
+      const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+      const mailtoLink = `mailto:psadhvik2006@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Open email client
+      window.open(mailtoLink);
+      
+      // Reset form
+      this.reset();
+      
+      // Show success message
+      alert('Thank you for your message! Your email client should open now.');
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
